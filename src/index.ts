@@ -37,14 +37,31 @@ function createPixels(pixel: {
 // Update the state of pixel (change color) from active to inactive or vice versa
 function updateState(x: number, y: number): void {
     const pixelToUpdate = pixels.find(p => p.x === x && p.y === y)
-    if(pixelToUpdate) 
+    
+    if(pixelToUpdate) {
         pixelToUpdate.isActive = !pixelToUpdate.isActive
-    updateCanvas(pixelToUpdate?.x, pixelToUpdate?.y, pixelToUpdate?.isActive)
+        updateCanvas(pixelToUpdate)
+    }
 }
 
-function updateCanvas(x: number | undefined, y: number | undefined, isActive: boolean | undefined) {
-    const pixelBtn = document.getElementById(`${x}-${y}`)
+function updateCanvas(pixel: {
+    x: number,
+    y: number,
+    isActive: boolean
+}): void {
+    const pixelBtn = document.getElementById(`${pixel.x}-${pixel.y}`)
+
     if(pixelBtn)
-        pixelBtn.style.backgroundColor = isActive ? '#28bb84' : '#efefe1'
+        pixelBtn.style.backgroundColor = pixel.isActive ? '#28bb84' : '#efefe1'
 }
+
+function userSelection(): void {
+    const colorInput = document.getElementById('color-input') as HTMLInputElement
+    const refreshBtn = document.getElementById('refresh-btn')
+    
+    colorInput?.addEventListener('change', function() {
+        console.log(colorInput.value)
+    })
+}
+
 
