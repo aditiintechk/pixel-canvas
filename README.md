@@ -7,7 +7,7 @@
 
 ### Game - Live Site
 
-[Pixel Canvas](https://aditi002-holo.github.io/pixel-canvas/)
+[Pixel Canvas](https://aditiintechk.github.io/pixel-canvas/)
 
 ### Stack
 
